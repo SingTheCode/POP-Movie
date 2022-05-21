@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
   }
 }
