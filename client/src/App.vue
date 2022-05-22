@@ -1,11 +1,22 @@
 <template>
   <div id="app">
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-    </nav>
+    <NavBar></NavBar>
     <RouterView></RouterView>
   </div>
 </template>
+
+<script>
+import NavBar from "@/components/NavBar";
+
+export default {
+  name: 'App',
+  components: {
+    NavBar,
+  },
+  computed: {
+  }
+}
+</script>
 
 <style>
 #app {
