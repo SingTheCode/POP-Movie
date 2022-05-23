@@ -14,6 +14,9 @@ export default new Vuex.Store({
   },
   getters: {},
   mutations: {
+    SET_CURRENTMOVIEIDX(state, index) {
+      state.currentMovieIdx = index;
+    },
     SET_BOXOFFICES(state, boxOffices) {
       state.boxOffices = boxOffices;
     },
