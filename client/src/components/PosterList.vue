@@ -1,22 +1,19 @@
 <template>
   <div id="poster-list">
-    <swiper ref="mySwiper" :options="swiperOption">
-      <swiper-slide><img
-        src="https://swiperjs.com/demos/images/nature-1.jpg" alt="poster"/></swiper-slide>
-      <swiper-slide><img
-          src="https://swiperjs.com/demos/images/nature-1.jpg" alt="poster"/></swiper-slide>
-      <swiper-slide><img
-          src="https://swiperjs.com/demos/images/nature-1.jpg" alt="poster"/></swiper-slide>
+    <swiper ref="mySwiper" :options="swiperOption" @slideChange="slideChange">
+      <swiper-slide v-for="(src, index) in posterSrcList" :key="index"
+      ><img :src="src" alt="poster"
+      /></swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+import {Swiper, SwiperSlide, directive} from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
 
 export default {
-  data () {
+  data() {
     return {
       swiperOption: {
         effect: "coverflow",
@@ -31,39 +28,47 @@ export default {
           slideShadows: true,
         },
         pagination: true,
-      }
-    }
+      },
+    };
+  },
+  methods: {
+    slideChange: function (index) {
+      this.$store.state.currentMovieIdx = index;
+    },
   },
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
   directives: {
-    swiper: directive
-  }
-}
+    swiper: directive,
+  },
+  props: {
+    posterSrcList: Array,
+  },
+};
 </script>
 
 <style scoped>
-  #poster-list {
-    width: 50vw;
-  }
+#poster-list {
+  width: 50vw;
+}
 
-  .swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-  }
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-  }
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
 </style>
