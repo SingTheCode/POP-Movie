@@ -15,6 +15,9 @@ export default {
     BoxOfficeItem,
     PosterList,
   },
+  mounted() {
+    this.$store.dispatch('fetchBoxOffices');
+  },
   computed: {
     posterSrcList: function () {
       const result = this.$store.state.boxOffices.map(boxOffice => boxOffice.posterSrc);
