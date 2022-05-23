@@ -65,6 +65,7 @@ export default {
   height: 3rem;
   background-color: #1A1B1E;
   color: white;
+  z-index: 2;
 }
 
 ul {
@@ -89,7 +90,6 @@ ul {
 }
 
 li {
-  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: small;
   list-style-type: none;
