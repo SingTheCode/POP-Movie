@@ -1,15 +1,15 @@
 <template>
   <div id="poster-list">
-    <swiper ref="mySwiper" :options="swiperOption" @slideChange="slideChange">
+    <swiper ref="mySwiper" :options="swiperOption" @slideChange="slideChangeTransitionStart">
       <swiper-slide v-for="(src, index) in posterSrcList" :key="index"
-      ><img :src="src" alt="poster"
+        ><img :src="src" alt="poster"
       /></swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
-import {Swiper, SwiperSlide, directive} from "vue-awesome-swiper";
+import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 
 export default {
@@ -32,9 +32,14 @@ export default {
     };
   },
   methods: {
-    slideChange: function (index) {
-      this.$store.state.currentMovieIdx = index;
+    slideChangeTransitionStart: function () {
+      this.$store.commit('SET_CURRENTMOVIEIDX', this.swiper.activeIndex);
     },
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
+    }
   },
   components: {
     Swiper,
