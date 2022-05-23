@@ -1,0 +1,31 @@
+{
+  "boxoffice": [
+    {
+      "id": 1,
+      "rank": 1,
+      "title": "Movie Title",
+      "releaseDate": "April 8, 2022",
+      "screenNum": 4258,
+      "spectatorNum": 145829424,
+      "posterSrc": "https://i.picsum.photos/id/70/200/300.jpg?hmac=8-6v4fVxk6exesGT53s01yaJuediQIreacSHqZY3mV4"
+    },
+    {
+      "id": 2,
+      "rank": 2,
+      "title": "Movie Title",
+      "releaseDate": "April 7, 2022",
+      "screenNum": 5380,
+      "spectatorNum": 231310,
+      "posterSrc": "https://i.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs"
+    },
+    {
+      "id": 3,
+      "rank": 3,
+      "title": "Movie Title Show",
+      "releaseDate": "April 4, 2022",
+      "screenNum": 2342,
+      "spectatorNum": 142345829424,
+      "posterSrc": "https://i.picsum.photos/id/1071/200/300.jpg?hmac=y09-AL4WisOkuQR4SOKzDWjPHWptbCDbEaFP0yJkKNY"
+    }
+  ]
+}
