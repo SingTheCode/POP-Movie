@@ -6,7 +6,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Movie, Comment
-from .serializers.movie import MovieListSerializer, MovieSerializer
+from .serializers.movie import MovieListSerializer
+from .serializers.moviedetail import  MovieSerializer
 from .serializers.comment import CommentSerializer
 
 
