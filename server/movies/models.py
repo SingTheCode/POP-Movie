@@ -22,6 +22,7 @@ class Movie(models.Model):
     genre = models.ManyToManyField(Genre)
     showtime = models.IntegerField()
     director = models.CharField(max_length=100)
+    
    
 
 class Comment(models.Model):
