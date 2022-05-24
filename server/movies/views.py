@@ -13,18 +13,20 @@ from .serializers.comment import CommentSerializer
 
 @api_view(['GET'])
 def movie_list():
-    movies = Movie.objects.annotate(
-        comment_count=Count('comments', distinct=True),
-        like_count=Count('like_users', distinct=True)
-    ).order_by('-pk')
+    movies = Movie.objects.order_by('-pk')
     serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
-
 
 @api_view(['GET'])
 def movie_detail(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     serializer = MovieSerializer(movie)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def moviebydecade(request):
+    movies = Movie.objects.all()
+    serializer = MovieListSerializer(movies, many=True)
     return Response(serializer.data)
 
 
