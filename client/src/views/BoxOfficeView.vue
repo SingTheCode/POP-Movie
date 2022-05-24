@@ -20,8 +20,7 @@ export default {
   },
   computed: {
     posterSrcList: function () {
-      const result = this.$store.state.boxOffices.map(boxOffice => boxOffice.posterSrc);
-      return result;
+      return this.$store.state.boxOffices.map(boxOffice => boxOffice.posterSrc);
     },
     boxOfficeItem: function () {
       const currentIdx = this.$store.state.currentMovieIdx;
