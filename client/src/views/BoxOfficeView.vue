@@ -15,9 +15,12 @@ export default {
     BoxOfficeItem,
     PosterList,
   },
+  mounted() {
+    this.$store.dispatch('fetchBoxOffices');
+  },
   computed: {
     posterSrcList: function () {
-      return this.$store.state.boxOffices.posterSrc;
+      return this.$store.state.boxOffices.map(boxOffice => boxOffice.posterSrc);
     },
     boxOfficeItem: function () {
       const currentIdx = this.$store.state.currentMovieIdx;
@@ -29,8 +32,9 @@ export default {
 
 <style scoped>
 #box-office {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
