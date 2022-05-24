@@ -20,7 +20,7 @@ export default {
 <style>
 #app {
   width: 100vw;
-  height: 100vh; /* 혹시나 Custom Property 지원 안하는 브라우저를 위한 복귀점(Fallback) */
+  height: 100%; /* 혹시나 Custom Property 지원 안하는 브라우저를 위한 복귀점(Fallback) */
   color: white;
   background-color: #1a1b1e;
   font-family: "Open Sans", sans-serif;
