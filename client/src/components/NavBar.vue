@@ -61,7 +61,7 @@ export default {
   position: fixed;
   top: 0;
   padding: 0 2rem;
-  width: 100%;
+  width: 100vw;
   height: 3rem;
   background-color: #1A1B1E;
   color: white;
