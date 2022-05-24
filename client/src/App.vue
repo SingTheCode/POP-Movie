@@ -21,9 +21,10 @@ export default {
 #app {
   width: 100vw;
   height: 100vh; /* 혹시나 Custom Property 지원 안하는 브라우저를 위한 복귀점(Fallback) */
-  color: #2c3e50;
+  color: white;
   background-color: #1a1b1e;
   font-family: "Open Sans", sans-serif;
+  font-weight: 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
