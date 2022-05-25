@@ -7,8 +7,8 @@
         <div id="item-summary">{{ movieDetail.summary }}</div>
       </div>
       <div class="detail">
-        <div id="item-people-name">출연 : {{ movieDetail.peopleName.join(', ') }}</div>
-        <div id="item-genre-name">장르 : {{ movieDetail.genreName.join(', ') }}</div>
+        <div id="item-people-name">출연 : {{ peopleName.join(', ') }}</div>
+        <div id="item-genre-name">장르 : {{ genreName.join(', ') }}</div>
         <div id="item-gross">관람객 수 : {{ movieDetail.spectatorNum }}</div>
       </div>
     </div>
@@ -21,7 +21,16 @@ export default {
   computed: {
     movieDetail: function () {
       return this.$store.state.movieDetail;
-    }
+    },
+    peopleName: function () {
+      const peopleName = this.$store.state.movieDetail.peopleName;
+      return peopleName ? peopleName : '';
+    },
+    genreName: function () {
+      const genreName = this.$store.state.movieDetail.genreName;
+      return genreName ? genreName : '';
+    },
+
   }
 }
 </script>
