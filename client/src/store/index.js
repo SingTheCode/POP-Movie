@@ -12,6 +12,7 @@ export default new Vuex.Store({
     boxOffices: [],
     randomMovie: {},
     moviesInDecade: {},
+    movieDetail: {},
   },
   getters: {},
   mutations: {
@@ -27,6 +28,10 @@ export default new Vuex.Store({
         state.moviesInDecade[key] = movieData.moviesInDecade[key];
       });
     },
+    FETCH_MOVIE_DETAIL(state, movieDetail) {
+      console.log(movieDetail);
+      state.movieDetail = movieDetail;
+    },
   },
   actions: {
     fetchBoxOffices({ commit }) {
@@ -39,6 +44,12 @@ export default new Vuex.Store({
       axios
         .get(SERVER.URL + SERVER.ROUTES.movieDays)
         .then((res) => commit("SET_MOVIEDAYS", res.data))
+        .catch((err) => console.error(err.res.data));
+    },
+    fetchMovieDetail({ commit }, movieId) {
+      axios
+        .get(SERVER.URL + SERVER.ROUTES.detail + movieId)
+        .then((res) => commit("FETCH_MOVIE_DETAIL", res.data))
         .catch((err) => console.error(err.res.data));
     },
   },

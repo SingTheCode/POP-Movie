@@ -19,6 +19,8 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  justify-content: center;
   width: 100vw;
   height: 100%; /* 혹시나 Custom Property 지원 안하는 브라우저를 위한 복귀점(Fallback) */
   color: white;
