@@ -16,7 +16,7 @@
         <div>{{ boxOfficeItem.spectatorNum }}</div>
       </div>
     </div>
-    <button>Details</button>
+    <button @click="goToMovieDetail">Details</button>
   </div>
 </template>
 
@@ -30,6 +30,14 @@ export default {
       releaseDate: String,
       screenNum: Number,
       spectatorNum: Number,
+    },
+  },
+  methods: {
+    goToMovieDetail: function () {
+      this.$router.push({
+        name: "MovieDetail",
+        params: {id: String(this.$store.state.currentMovieIdx)},
+      });
     },
   },
 };
