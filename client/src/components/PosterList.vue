@@ -1,7 +1,13 @@
 <template>
   <div id="poster-list">
-    <swiper ref="mySwiper" :options="swiperOption" @slideChange="slideChangeTransitionStart">
-      <swiper-slide v-for="(src, index) in posterSrcList" :key="index"
+    <swiper
+        ref="mySwiper"
+        :options="swiperOption"
+        @slideChange="slideChangeTransitionStart"
+    >
+      <swiper-slide
+          v-for="(src, index) in posterSrcList"
+          :key="index"
       ><img :src="src" alt="poster"
       /></swiper-slide>
     </swiper>
@@ -33,13 +39,13 @@ export default {
   },
   methods: {
     slideChangeTransitionStart: function () {
-      this.$store.commit('SET_CURRENTMOVIEIDX', this.swiper.activeIndex);
+      this.$store.commit("SET_CURRENTMOVIEIDX", this.swiper.activeIndex);
     },
   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.$swiper;
-    }
+    },
   },
   components: {
     Swiper,

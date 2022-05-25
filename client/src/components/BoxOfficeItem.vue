@@ -57,7 +57,7 @@ export default {
 #rank {
   display: flex;
   padding-bottom: 8rem;
-  color: #B1FD00;
+  color: #b1fd00;
   font-size: 5rem;
 }
 
@@ -75,7 +75,7 @@ export default {
   width: 38vw;
   max-width: 34rem;
   padding: 3rem 0;
-  color: #ACACAC;
+  color: #acacac;
 }
 
 #detail > div {
@@ -89,12 +89,11 @@ export default {
 button {
   width: 7rem;
   height: 3.5rem;
-  background-color: #B1FD00;
+  background-color: #b1fd00;
   color: black;
   font-size: 0.9rem;
   font-weight: 600;
   border-style: none;
   border-radius: 20px;
-
 }
 </style>
