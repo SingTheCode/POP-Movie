@@ -329,7 +329,19 @@
     ],
     "screenNum": 4258,
     "spectatorNum": 145829424,
-    "posterSrc": "https://i.picsum.photos/id/70/200/300.jpg?hmac=8-6v4fVxk6exesGT53s01yaJuediQIreacSHqZY3mV4"
+    "posterSrc": "https://i.picsum.photos/id/70/200/300.jpg?hmac=8-6v4fVxk6exesGT53s01yaJuediQIreacSHqZY3mV4",
+    "comments": [
+      {
+        "id": 1,
+        "userId": "spiderq10@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "id": 2,
+        "userId": "singco@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      }
+    ]
   },
   "movie1": {
     "id": 2,
@@ -350,7 +362,19 @@
     ],
     "screenNum": 5380,
     "spectatorNum": 231310,
-    "posterSrc": "https://i.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs"
+    "posterSrc": "https://i.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs",
+    "comments": [
+      {
+        "id": 1,
+        "userId": "spiderq10@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "id": 2,
+        "userId": "singco@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      }
+    ]
   },
   "movie2": {
     "id": 3,
@@ -371,6 +395,18 @@
     ],
     "screenNum": 2342,
     "spectatorNum": 142345829424,
-    "posterSrc": "https://i.picsum.photos/id/1071/200/300.jpg?hmac=y09-AL4WisOkuQR4SOKzDWjPHWptbCDbEaFP0yJkKNY"
+    "posterSrc": "https://i.picsum.photos/id/1071/200/300.jpg?hmac=y09-AL4WisOkuQR4SOKzDWjPHWptbCDbEaFP0yJkKNY",
+    "comments": [
+      {
+        "id": 1,
+        "userId": "spiderq10@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "id": 2,
+        "userId": "singco@gmail.com",
+        "context": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      }
+    ]
   }
 }
