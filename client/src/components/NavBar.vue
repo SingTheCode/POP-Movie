@@ -9,7 +9,7 @@
           <RouterLink to="/" :class="{selected: isBoxOfficeSelected}">Box Office</RouterLink>
         </li>
         <li id="movie-days" @click="selectPage">
-          <RouterLink to="/moviedays" :class="{selected: isMovieDaysSelected}">Movie Days</RouterLink>
+          <RouterLink to="/movieindecade" :class="{selected: isMovieDaysSelected}">Movie Days</RouterLink>
         </li>
       </div>
       <div id="right-li">

@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import BoxOfficeView from "@/views/BoxOfficeView";
-import MovieDaysView from "@/views/MovieDaysView";
+import MovieInDecadeView from "@/views/MovieInDecadeView";
 import MovieDetailView from "@/views/MovieDetailView";
 import MyPageView from "@/views/MyPageView";
 import NotFound from "../views/NotFound.vue";
@@ -21,9 +21,9 @@ const routes = [
     component: MovieDetailView,
   },
   {
-    path: "/moviedays",
-    name: "MovieDays",
-    component: MovieDaysView,
+    path: "/movieindecade",
+    name: "MovieInDecade",
+    component: MovieInDecadeView,
   },
   {
     path: "/mypage",

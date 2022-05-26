@@ -10,9 +10,6 @@ export default {
   props: {
     movie: Object,
   },
-  mounted() {
-    console.log(this.movie)
-  }
 };
 </script>
 

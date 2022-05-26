@@ -1,10 +1,10 @@
 <template>
   <div id="movie-item-list">
-    <div id="decade">{{ this.decade }}</div>
+    <div id="decade">{{ decade }}</div>
     <div id="movie-list">
       <swiper ref="mySwiper" :options="swiperOption">
         <swiper-slide
-            v-for="movie in moviesInDecade"
+            v-for="movie in movieInDecade"
             :key="movie.id"
         >
           <movie-item
@@ -45,7 +45,7 @@ export default {
     };
   },
   props: {
-    moviesInDecade: Array,
+    movieInDecade: Array,
     decade: String,
   },
   components: {
@@ -55,9 +55,6 @@ export default {
   },
   directives: {
     swiper: directive,
-  },
-  mounted() {
-    console.log(this.moviesInDecade);
   },
 };
 </script>
