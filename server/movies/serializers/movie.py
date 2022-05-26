@@ -28,6 +28,8 @@ class BoxofficeSerializer(serializers.ModelSerializer):
 
 class MovieSerializer(serializers.ModelSerializer):
     
+    genre_ids = GenreSerializer(many=True, read_only=True)
+
     class UserSerializer(serializers.ModelSerializer) :
 
         class Meta :
@@ -35,9 +37,11 @@ class MovieSerializer(serializers.ModelSerializer):
             fields = ('pk','username')
 
     comments = CommentSerializer(many=True, read_only=True)
-    like_users = UserSerializer(many=True, read_only=True)
+    # like_users = UserSerializer(many=True, read_only=True)
     user = UserSerializer(read_only=True)
+
 
     class Meta:
         model = Movie
-        fields = ('pk', 'poster_path', 'adult', 'overview', 'released_date', 'genre_ids', 'original_title', 'original_language', 'title', 'popularity', 'video_key', 'vote_average', 'like_users', 'comments', 'user')
+        fields = ('__all__')
+        # fields = ('pk', 'poster_path', 'adult', 'overview', 'release_date', 'genre_ids', 'original_title', 'original_language', 'title', 'popularity', 'video_key', 'vote_average', 'comments', 'user',)

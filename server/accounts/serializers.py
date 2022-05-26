@@ -4,16 +4,16 @@ from movies.models import Movie
 
 class ProfileSerializer(serializers.ModelSerializer):
 
-    class movieSerializer(serializers.ModelSerializer):
+    class MovieSerializer(serializers.ModelSerializer):
         
         class Meta:
             model = Movie
             fields = ('pk', 'title', 'poster_path',)
 
-    like_movies = movieSerializer(many=True)
-    movies = movieSerializer(many=True)
+    # like_movies = movieSerializer(many=True)
+    # movies = MovieSerializer(many=True)
 
     class Meta:
         model = get_user_model()
-        fields = ('pk', 'like_movies', 'username', 'email', 'instagram', 'facebook',)
+        fields = ('pk', 'username', 'email',)
 
