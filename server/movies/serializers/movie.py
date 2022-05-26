@@ -21,7 +21,7 @@ class MovieListSerializer(serializers.ModelSerializer):
 class BoxofficeSerializer(serializers.ModelSerializer):
 
     genre_ids = GenreSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = Boxoffice
         fields = ('__all__')
@@ -40,4 +40,4 @@ class MovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ('__all__')
+        fields = ('pk', 'poster_path', 'adult', 'overview', 'released_date', 'genre_ids', 'original_title', 'original_language', 'title', 'popularity', 'video_key', 'vote_average', 'like_users', 'comments', 'user')

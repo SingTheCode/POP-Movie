@@ -39,7 +39,7 @@ url = URLMaker(TMDB_KEY)
 def create_movie_data():
     movie_data = []
 
-    for page in range(1, 300):
+    for page in range(1, 100):
         raw_data = requests.get(url.get_movie_url(page=page))
         json_data = raw_data.json()
         movies = json_data.get('results')
@@ -64,7 +64,7 @@ def create_movie_data():
             movie['video_key'] = video_key
             tmp = {
                 'model': 'movies.movie',
-                'pk': page+1,
+                'pk': movie['id'],
                 'fields': {
                     "poster_path": movie['poster_path'],
                     "adult": movie['adult'],
