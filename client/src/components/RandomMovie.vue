@@ -9,10 +9,10 @@ export default {
   name: "RandomMovie",
   computed: {
     posterSrc: function () {
-      return this.$store.state.randomMovie.posterSrc;
+      return this.$store.state.movies.randomMovie.posterSrc;
     },
     posterId: function () {
-      return this.$store.state.randomMovie.id;
+      return this.$store.state.movies.randomMovie.id;
     }
   }
 }

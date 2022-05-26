@@ -20,11 +20,11 @@ export default {
   },
   computed: {
     posterSrcList: function () {
-      return this.$store.state.boxOffices.map(boxOffice => boxOffice.posterSrc);
+      return this.$store.state.movies.boxOffices.map(boxOffice => boxOffice.posterSrc);
     },
     boxOfficeItem: function () {
-      const currentIdx = this.$store.state.currentMovieIdx;
-      return this.$store.state.boxOffices[currentIdx];
+      const currentIdx = this.$store.state.movies.currentMovieIdx;
+      return this.$store.state.movies.boxOffices[currentIdx];
     },
   },
 };

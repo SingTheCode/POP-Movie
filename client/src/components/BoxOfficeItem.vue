@@ -36,7 +36,7 @@ export default {
     goToMovieDetail: function () {
       this.$router.push({
         name: "MovieDetail",
-        params: {id: String(this.$store.state.currentMovieIdx)},
+        params: {id: String(this.$store.state.movies.currentMovieIdx)},
       });
     },
   },

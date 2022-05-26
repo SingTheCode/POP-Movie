@@ -19,10 +19,10 @@ export default {
   },
   computed: {
     movieList: function () {
-      return this.$store.state.moviesInDecade;
+      return this.$store.state.movies.moviesInDecade;
     },
     decades: function () {
-      return Object.keys(this.$store.state.moviesInDecade);
+      return Object.keys(this.$store.state.movies.moviesInDecade);
     },
   },
 };

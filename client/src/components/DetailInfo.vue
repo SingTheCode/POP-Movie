@@ -20,14 +20,14 @@ export default {
   name: "DetailInfo",
   computed: {
     movieDetail: function () {
-      return this.$store.state.movieDetail;
+      return this.$store.state.movies.movieDetail;
     },
     peopleName: function () {
-      const peopleName = this.$store.state.movieDetail.peopleName;
+      const peopleName = this.$store.state.movies.movieDetail.peopleName;
       return peopleName ? peopleName : '';
     },
     genreName: function () {
-      const genreName = this.$store.state.movieDetail.genreName;
+      const genreName = this.$store.state.movies.movieDetail.genreName;
       return genreName ? genreName : '';
     },
 
