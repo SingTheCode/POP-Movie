@@ -1,19 +1,19 @@
 <template>
   <div id="box-office-item">
-    <div id="rank">{{ boxOfficeItem.rank }}</div>
-    <div id="title">{{ boxOfficeItem.title }}</div>
+    <div id="rank">{{ movieIndex + 1 }}</div>
+    <div id="title">{{ boxOfficeItem.original_title }}</div>
     <div id="detail">
       <div id="release-date">
         <div>RELEASE DATE</div>
-        <div>{{ boxOfficeItem.releaseDate }}</div>
+        <div>{{ boxOfficeItem.release_date }}</div>
       </div>
       <div id="max-theather">
         <div>MAX THEATHER</div>
-        <div>{{ boxOfficeItem.screenNum }}</div>
+        <div>{{ boxOfficeItem.vote_average }}</div>
       </div>
-      <div id="gross">
-        <div>GROSS</div>
-        <div>{{ boxOfficeItem.spectatorNum }}</div>
+      <div id="genre">
+        <div>GENRE</div>
+        <div>{{ genre }}</div>
       </div>
     </div>
     <button @click="goToMovieDetail">Details</button>
@@ -25,21 +25,32 @@ export default {
   name: "BoxOfficeItem",
   props: {
     boxOfficeItem: {
-      rank: Number,
-      title: String,
-      releaseDate: String,
-      screenNum: Number,
-      spectatorNum: Number,
+      // rank: Number,
+      original_title: String,
+      release_date: String,
+      vote_average: String,
+      genre_ids: Object,
     },
   },
   methods: {
     goToMovieDetail: function () {
       this.$router.push({
         name: "MovieDetail",
-        params: {id: String(this.$store.state.currentMovieIdx)},
+        params: {id: String(this.$store.state.movies.currentMovie.id)},
       });
     },
   },
+
+  computed: {
+    movieIndex() {
+      return this.$store.state.movies.currentMovieIdx;
+    },
+
+    genre() {
+      let result = this.boxOfficeItem.genre_ids.map(obj => obj.name);
+      return result.join(', ');
+    }
+  }
 };
 </script>
 
@@ -84,6 +95,12 @@ export default {
   justify-content: center;
   align-items: flex-start;
   padding-bottom: 3rem;
+}
+
+#genre {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 button {

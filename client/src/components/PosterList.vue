@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     slideChangeTransitionStart: function () {
-      this.$store.commit("SET_CURRENTMOVIEIDX", this.swiper.activeIndex);
+      this.$store.dispatch("fetchCurrentIdx", this.swiper.activeIndex);
     },
   },
   computed: {

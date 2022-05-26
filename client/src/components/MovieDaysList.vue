@@ -1,28 +1,28 @@
 <template>
   <div id="movie-days-list">
-    <movies-in-decade
+    <movie-item-list
         v-for="(decade, index) in decades"
-        :moviesInDecade="movieList[decade]"
+        :movieInDecade="movieList[decade]"
         :decade="decades[index]"
         :key="index"
-    ></movies-in-decade>
+    ></movie-item-list>
   </div>
 </template>
 
 <script>
-import MoviesInDecade from "@/components/MovieItemList";
+import MovieItemList from "@/components/MovieItemList";
 
 export default {
   name: "MovieDaysList",
   components: {
-    MoviesInDecade,
+    MovieItemList,
   },
   computed: {
     movieList: function () {
-      return this.$store.state.moviesInDecade;
+      return this.$store.state.movies.movieInDecade;
     },
     decades: function () {
-      return Object.keys(this.$store.state.moviesInDecade);
+      return Object.keys(this.$store.state.movies.movieInDecade);
     },
   },
 };

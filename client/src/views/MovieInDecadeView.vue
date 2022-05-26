@@ -1,5 +1,5 @@
 <template>
-  <div id="movie-days">
+  <div id="movie-in-decade">
     <RandomMovie/>
     <MovieDaysList/>
   </div>
@@ -10,22 +10,23 @@ import RandomMovie from "@/components/RandomMovie";
 import MovieDaysList from "@/components/MovieDaysList";
 
 export default {
-  name: "MovieDaysView",
+  name: "MovieInDecadeView",
   components: {
     RandomMovie,
     MovieDaysList
   },
   mounted() {
-    this.$store.dispatch("fetchMovieDays");
+    this.$store.dispatch("fetchMovieInDecade");
   },
 };
 </script>
 
 <style scoped>
-#movie-days {
+#movie-in-decade {
   postion: relative;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

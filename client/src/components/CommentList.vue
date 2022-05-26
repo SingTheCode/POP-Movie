@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 import CommentItem from "@/components/CommentItem";
 
 export default {
@@ -19,9 +21,7 @@ export default {
     CommentItem,
   },
   computed: {
-    commentList: function () {
-      return this.$store.state.commentList;
-    },
+    ...mapGetters(['commentList']),
   },
 };
 </script>
