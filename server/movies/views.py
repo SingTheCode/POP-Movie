@@ -5,18 +5,18 @@ from django.db.models import Count
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Movie, Comment
-from .serializers.movie import MovieListSerializer
-from .serializers.moviedetail import  MovieSerializer
+from .models import Boxoffice, Movie, Comment
+from .serializers.movie import MovieListSerializer, MovieSerializer, BoxofficeSerializer
 from .serializers.comment import CommentSerializer
+import datetime
 
 
 @api_view(['GET'])
-def movie_list():
-    movies = Movie.objects.order_by('-pk')
-    serializer = MovieListSerializer(movies, many=True)
+def movie_list(request):
+    movies = Boxoffice.objects.order_by('-pk')
+    serializer = BoxofficeSerializer(movies, many=True)
     return Response(serializer.data)
-
+    
 @api_view(['GET'])
 def movie_detail(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
@@ -25,9 +25,57 @@ def movie_detail(request, movie_pk):
 
 @api_view(['GET'])
 def moviebydecade(request):
-    movies = Movie.objects.all()
+    movie_decade = ['2020s', '2010s', '2000s', '1990s', '1980s', '1970s', '1960s']
+    movie_all = []
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2020, 1, 1))
     serializer = MovieListSerializer(movies, many=True)
-    return Response(serializer.data)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2010, 1, 1)).filter(release_date__lte=datetime.date(2019, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2000, 1, 1)).filter(release_date__lte=datetime.date(2009, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1990, 1, 1)).filter(release_date__lte=datetime.date(1999, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1980, 1, 1)).filter(release_date__lte=datetime.date(1989, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1970, 1, 1)).filter(release_date__lte=datetime.date(1979, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1960, 1, 1)).filter(release_date__lte=datetime.date(1969, 12, 31))
+    serializer = MovieListSerializer(movies, many=True)
+    movie_all.append(serializer.data)
+    movies_all = dict(zip(movie_decade, movie_all))
+
+    return Response(movies_all)
+
+    # movie_decade = ['2020s', '2010s', '2000s', '1990s', '1980s', '1970s', '1960s']
+    # movie_dict = [[] for _ in range(7)]
+    # for movie in movies:
+    #     if 2020 <= int(movie.release_date[0:4]) < 2030:
+    #         movie_dict[0].append(movie)
+    #     elif 2010 <= int(movie.release_date[0:4]) < 2020:
+    #         movie_dict[1].append(movie)
+    #     elif 2000 <= int(movie.release_date[0:4]) < 2010:
+    #         movie_dict[2].append(movie)
+    #     elif 1990 <= int(movie.release_date[0:4]) < 2000:
+    #         movie_dict[3].append(movie)
+    #     elif 1980 <= int(movie.release_date[0:4]) < 1990:
+    #         movie_dict[4].append(movie)
+    #     elif 1970 <= int(movie.release_date[0:4]) < 1980:
+    #         movie_dict[5].append(movie)
+    #     elif 1960 <= int(movie.release_date[0:4]) < 1970:
+    #         movie_dict[6].append(movie)
+    # movies_all = dict(zip(movie_decade, movie_dict))
 
 
 @api_view(['POST'])
