@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     commentList: function () {
-      return this.$store.state.movieDetail.comments;
+      return this.$store.state.commentList;
     },
   },
 };
