@@ -13,6 +13,7 @@ export default new Vuex.Store({
     randomMovie: {},
     moviesInDecade: {},
     movieDetail: {},
+    commentList: [],
   },
   getters: {},
   mutations: {
@@ -29,8 +30,8 @@ export default new Vuex.Store({
       });
     },
     FETCH_MOVIE_DETAIL(state, movieDetail) {
-      console.log(movieDetail);
       state.movieDetail = movieDetail;
+      state.commentList = movieDetail.comments;
     },
   },
   actions: {
@@ -48,8 +49,24 @@ export default new Vuex.Store({
     },
     fetchMovieDetail({ commit }, movieId) {
       axios
-        .get(SERVER.URL + SERVER.ROUTES.detail + movieId)
+        .get(SERVER.URL + SERVER.ROUTES.detail + "/" + movieId)
         .then((res) => commit("FETCH_MOVIE_DETAIL", res.data))
+        .catch((err) => console.error(err.res.data));
+    },
+    createComment(context, commentItem) {
+      axios
+        .post(
+          SERVER.URL +
+            SERVER.ROUTES.detail +
+            "/" +
+            commentItem.movieId +
+            "/comments",
+          {
+            userId: commentItem.userId,
+            context: commentItem.context,
+          }
+        )
+        .then((res) => console.log(res.data))
         .catch((err) => console.error(err.res.data));
     },
   },

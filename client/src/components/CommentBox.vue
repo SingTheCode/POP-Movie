@@ -1,15 +1,18 @@
 <template>
   <div id="comment-box">
+    <CommentForm/>
     <CommentList/>
   </div>
 </template>
 
 <script>
+import CommentForm from "@/components/CommentForm";
 import CommentList from "@/components/CommentList";
 
 export default {
   name: "CommentBox",
   components: {
+    CommentForm,
     CommentList,
   }
 }
