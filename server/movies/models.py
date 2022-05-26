@@ -9,6 +9,7 @@ class Genre(models.Model):
         return self.name
 
 class Movie(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='movies')
     poster_path = models.CharField(max_length=200, blank=True, null=True)
     adult = models.BooleanField()
     overview = models.TextField(null=True, blank=True)
@@ -20,7 +21,8 @@ class Movie(models.Model):
     popularity = models.FloatField(null=True, blank=True)
     video_key = models.CharField(max_length=200, blank=True, null=True)
     vote_average = models.FloatField(null=True, blank=True)
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies')
+
+    # like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies')
 
 class Boxoffice(models.Model):
     poster_path = models.CharField(max_length=200, blank=True, null=True)
@@ -38,6 +40,6 @@ class Comment(models.Model):
     content = models.CharField(max_length=200)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
     
