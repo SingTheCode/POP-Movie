@@ -1,17 +1,20 @@
 import axios from "axios";
+import _ from "lodash";
+
 import SERVER from "@/API/url";
 
 export default {
   state: {
     currentMovieIdx: 0,
     boxOffices: [],
-    randomMovie: {},
-    moviesInDecade: {},
+    movieInDecade: {},
     movieDetail: {},
-    commentList: [],
   },
 
-  getters: {},
+  getters: {
+    commentList: (state) => state.movieDetail.comments,
+    randomMovie: (state) => _.sample(state.movieInDecade["2020s"]),
+  },
 
   mutations: {
     SET_CURRENTMOVIEIDX(state, index) {
@@ -20,15 +23,11 @@ export default {
     SET_BOXOFFICES(state, boxOffices) {
       state.boxOffices = boxOffices;
     },
-    SET_MOVIEDAYS(state, movieData) {
-      state.randomMovie = movieData.randomMovie;
-      Object.keys(movieData.moviesInDecade).forEach((key) => {
-        state.moviesInDecade[key] = movieData.moviesInDecade[key];
-      });
+    SET_MOVIEINDECADE(state, movieData) {
+      state.movieInDecade = movieData;
     },
     FETCH_MOVIE_DETAIL(state, movieDetail) {
       state.movieDetail = movieDetail;
-      state.commentList = movieDetail.comments;
     },
   },
 
@@ -39,10 +38,10 @@ export default {
         .then((res) => commit("SET_BOXOFFICES", res.data))
         .catch((err) => console.error(err.res.data));
     },
-    fetchMovieDays({ commit }) {
+    fetchMovieInDecade({ commit }) {
       axios
         .get(SERVER.URL + SERVER.ROUTES.movieDays)
-        .then((res) => commit("SET_MOVIEDAYS", res.data))
+        .then((res) => commit("SET_MOVIEINDECADE", res.data))
         .catch((err) => console.error(err.res.data));
     },
     fetchMovieDetail({ commit }, movieId) {

@@ -1,21 +1,18 @@
 <template>
   <div id="random-movie">
-    <img :src="posterSrc" alt="random movie">
+    <img :src="randomMovie.posterSrc" alt="random movie"/>
   </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "RandomMovie",
   computed: {
-    posterSrc: function () {
-      return this.$store.state.movies.randomMovie.posterSrc;
-    },
-    posterId: function () {
-      return this.$store.state.movies.randomMovie.id;
-    }
-  }
-}
+    ...mapGetters(["randomMovie"]),
+  },
+};
 </script>
 
 <style scoped>
