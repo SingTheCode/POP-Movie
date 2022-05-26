@@ -1,18 +1,16 @@
 <template>
   <div id="sign-up">
-    <h1>Signup</h1>
-
     <form @submit.prevent="signup(credentials)">
-      <div>
-        <label for="username">Username: </label>
+      <div class="signup-box">
+        <label for="username">Username</label>
         <input v-model="credentials.username" type="text" id="username" required/>
       </div>
-      <div>
-        <label for="password1">Password: </label>
+      <div class="signup-box">
+        <label for="password1">Password</label>
         <input v-model="credentials.password1" type="password" id="password1" required/>
       </div>
-      <div>
-        <label for="password2">Password Confirmation: </label>
+      <div class="signup-box">
+        <label for="password2">Confirm Password</label>
         <input v-model="credentials.password2" type="password" id="password2" required/>
       </div>
       <button>Signup</button>
@@ -44,7 +42,37 @@ export default {
 
 <style scoped>
 #sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40rem
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 1rem;
+}
+
+button {
+  width: 5rem;
+  height: 2rem;
+  background-color: #b1fd00;
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-style: none;
+  border-radius: 8px;
 }
 </style>
