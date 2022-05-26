@@ -9,7 +9,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         
         class Meta:
             model = Movie
-            fields = ('pk', 'movieNm', 'posterSrc', 'average', 'releaseDate')
+            fields = ('pk', 'movieNm', 'posterSrc',)
             # fields = ('pk',)
 
     like_movies = movieSerializer(many=True)
