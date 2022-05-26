@@ -20,6 +20,8 @@ class MovieListSerializer(serializers.ModelSerializer):
 
 class BoxofficeSerializer(serializers.ModelSerializer):
 
+    genre_ids = GenreSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Boxoffice
         fields = ('__all__')
