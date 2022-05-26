@@ -1,7 +1,6 @@
 # movies/views.py
 
 from django.shortcuts import get_object_or_404
-from django.db.models import Count
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -96,7 +95,6 @@ def like_movie(request, movie_pk):
 def create_comment(request, movie_pk):
     user = request.user
     movie = get_object_or_404(Movie, pk=movie_pk)
-    
     serializer = CommentSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         serializer.save(movie=movie, user=user)

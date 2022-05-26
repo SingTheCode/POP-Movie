@@ -39,7 +39,7 @@ url = URLMaker(TMDB_KEY)
 def create_movie_data():
     movie_data = []
 
-    for page in range(1, 2):
+    for page in range(1, 300):
         raw_data = requests.get(url.get_movie_url(page=page))
         json_data = raw_data.json()
         movies = json_data.get('results')
