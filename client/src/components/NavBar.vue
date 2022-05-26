@@ -6,40 +6,58 @@
           <RouterLink to="/" id="logo">POP Movie</RouterLink>
         </li>
         <li id="box-office" @click="selectPage">
-          <RouterLink to="/" :class="{selected: isBoxOfficeSelected}">Box Office</RouterLink>
+          <RouterLink to="/" :class="{ selected: isBoxOfficeSelected }"
+          >Box Office
+          </RouterLink>
         </li>
         <li id="movie-days" @click="selectPage">
-          <RouterLink to="/movieindecade" :class="{selected: isMovieDaysSelected}">Movie Days</RouterLink>
+          <RouterLink
+              to="/movieindecade"
+              :class="{ selected: isMovieDaysSelected }"
+          >Movie Days
+          </RouterLink>
         </li>
       </div>
-      <div id="right-li">
-        <li>Sign in</li>
-        <li id="sign-up">Sign up</li>
+      <div class="log-box" v-if="isLoggedIn">
+        <li id="username">{{ currentUser.username }}</li>
+        <li id="logout" @click="logoutHandler">Sign out</li>
+      </div>
+      <div class="log-box" v-else>
+        <li>
+          <RouterLink to="/login">Sign in</RouterLink>
+        </li>
+        <li id="sign-up">
+          <RouterLink to="/signup">Sign up</RouterLink>
+        </li>
       </div>
     </ul>
-
   </div>
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`)
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01
-  document.documentElement.style.setProperty('--vh', `${vh}px`)
-})
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+window.addEventListener("resize", () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+});
 
 export default {
   name: "NavBar",
   data: function () {
     return {
-      selected: 'selected',
+      selected: "selected",
       isBoxOfficeSelected: true,
       isMovieDaysSelected: false,
-    }
+    };
+  },
+  computed: {
+    ...mapGetters(["isLoggedIn", "currentUser"]),
   },
   methods: {
-    selectPage: function () {
+    selectPage() {
       const url = window.location.pathname;
 
       if (url === "/") {
@@ -47,13 +65,22 @@ export default {
         this.isMovieDaysSelected = false;
       }
 
-      if (url === "/moviedays") {
+      if (url === "/movieindecade") {
         this.isMovieDaysSelected = true;
         this.isBoxOfficeSelected = false;
       }
-    }
-  }
-}
+    },
+    ...mapActions(["logout"]),
+    logoutHandler() {
+      console.log("check");
+      if (this.isLoggedIn) {
+        this.logout();
+      } else {
+        alert("잘못된 접근!");
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -63,7 +90,7 @@ export default {
   padding: 0 2rem;
   width: 100vw;
   height: 3rem;
-  background-color: #1A1B1E;
+  background-color: #1a1b1e;
   color: white;
   z-index: 2;
 }
@@ -83,7 +110,7 @@ ul {
   width: 26rem;
 }
 
-#right-li {
+.log-box {
   display: flex;
   justify-content: space-evenly;
   width: 13rem;
@@ -105,11 +132,11 @@ li > a {
   font-size: x-large;
 }
 
-#sign-up {
-  color: #B1FD00;
+#sign-up > a {
+  color: #b1fd00;
 }
 
 .selected {
-  color: #B1FD00;
+  color: #b1fd00;
 }
 </style>

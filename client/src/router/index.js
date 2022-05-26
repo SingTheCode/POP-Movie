@@ -5,7 +5,10 @@ import BoxOfficeView from "@/views/BoxOfficeView";
 import MovieInDecadeView from "@/views/MovieInDecadeView";
 import MovieDetailView from "@/views/MovieDetailView";
 import MyPageView from "@/views/MyPageView";
+import LoginView from "@/views/LoginView";
+import SignUpView from "@/views/SignUpView";
 import NotFound from "../views/NotFound.vue";
+import LogoutView from "@/views/LogoutView";
 
 Vue.use(VueRouter);
 
@@ -29,6 +32,21 @@ const routes = [
     path: "/mypage",
     name: "MyPage",
     component: MyPageView,
+  },
+  {
+    path: "/login",
+    name: "LogIn",
+    component: LoginView,
+  },
+  {
+    path: "/logout",
+    name: "LogOut",
+    component: LogoutView,
+  },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: SignUpView,
   },
   {
     path: "/notfound",

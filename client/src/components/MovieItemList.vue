@@ -36,7 +36,7 @@ export default {
         breakpoints: {
           769: {
             slidesPerView: 7,
-            slidesPerGroup: 4,
+            slidesPerGroup: 3,
           },
         },
         scrollbar: true,

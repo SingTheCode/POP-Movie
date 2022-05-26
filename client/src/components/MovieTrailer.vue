@@ -1,6 +1,6 @@
 <template>
   <div id="movie-trailer">
-    <iframe src="https://www.youtube.com/embed/mI9oyFMUlfg?controls=0"
+    <iframe :src="videoPath"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
@@ -8,8 +8,15 @@
 </template>
 
 <script>
+import {YOUTUBE_VIDEO_URL} from "@/util/config";
+
 export default {
-  name: "MovieTrailer"
+  name: "MovieTrailer",
+  computed: {
+    videoPath() {
+      return YOUTUBE_VIDEO_URL + this.$store.state.movies.movieDetail.video_key + '?controls=0';
+    }
+  }
 }
 </script>
 
