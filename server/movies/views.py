@@ -27,31 +27,31 @@ def movie_detail(request, movie_pk):
 def moviebydecade(request):
     movie_decade = ['2020s', '2010s', '2000s', '1990s', '1980s', '1970s', '1960s']
     movie_all = []
-    movies = Movie.objects.filter(release_date__gte=datetime.date(2020, 1, 1))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2020, 1, 1)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(2010, 1, 1)).filter(release_date__lte=datetime.date(2019, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2010, 1, 1)).filter(release_date__lte=datetime.date(2019, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(2000, 1, 1)).filter(release_date__lte=datetime.date(2009, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(2000, 1, 1)).filter(release_date__lte=datetime.date(2009, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(1990, 1, 1)).filter(release_date__lte=datetime.date(1999, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1990, 1, 1)).filter(release_date__lte=datetime.date(1999, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(1980, 1, 1)).filter(release_date__lte=datetime.date(1989, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1980, 1, 1)).filter(release_date__lte=datetime.date(1989, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(1970, 1, 1)).filter(release_date__lte=datetime.date(1979, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1970, 1, 1)).filter(release_date__lte=datetime.date(1979, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
 
-    movies = Movie.objects.filter(release_date__gte=datetime.date(1960, 1, 1)).filter(release_date__lte=datetime.date(1969, 12, 31))
+    movies = Movie.objects.filter(release_date__gte=datetime.date(1960, 1, 1)).filter(release_date__lte=datetime.date(1969, 12, 31)).order_by('-popularity')[:30]
     serializer = MovieListSerializer(movies, many=True)
     movie_all.append(serializer.data)
     movies_all = dict(zip(movie_decade, movie_all))
